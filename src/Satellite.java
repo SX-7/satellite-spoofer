@@ -13,9 +13,9 @@ public class Satellite {
     }
 
     //All options
-    public Satellite(String name, float position, String norad, String cospar, String model, String launchSite,
+    public Satellite(ArrayList<String> name, float position, String norad, String cospar, String model, String launchSite,
             String launchDate, String producer) {
-        this.name.set(0, name);
+        this.name = name;
         this.position = position;
         this.norad = norad;
         this.cospar = cospar;
@@ -27,20 +27,12 @@ public class Satellite {
 
     private ArrayList<String> name = new ArrayList<String>();
 
-    public String getName() {
-        return this.name.get(0);
+    public ArrayList<String> getName() {
+        return this.name;
     }
 
-    public void setName(String name) {
-        this.name.set(0, name);
-    }
-
-    public String getName(int nameNumber) {
-        return this.name.get(nameNumber);
-    }
-
-    public void setName(String name, int nameNumber) {
-        this.name.set(nameNumber, name);
+    public void setName(ArrayList<String> name) {
+        this.name = name;
     }
 
     //Just in case we don't know
