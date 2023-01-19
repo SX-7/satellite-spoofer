@@ -18,7 +18,7 @@ public class Flysat extends Webpages {
     private static float parsePosition(String position) {
         Float posNumber = Float.parseFloat(position.substring(0,position.length()-3));
         String director = position.substring(position.length()-1);
-        if(director=="E"){
+        if(director.equals(new String("W"))){
             posNumber=posNumber*(-1);
         }
         return posNumber;
