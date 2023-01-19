@@ -33,9 +33,17 @@ public class Flysat extends Webpages {
             Satellite satellite = new Satellite();
             satellite.setName(sat.select("td:eq(1)").text());
             try {
-                satellite.setPosition(parsePosition(sat.select("td:eq(2)").text()));    
-            } catch (Exception e) {
-                continue;
+                satellite.setPosition(parsePosition(sat.select("td:eq(2)").text()));
+            } catch (Exception ei) {
+                satellite.setName(sat.select("td:eq(0)").text());
+                try {
+                    satellite.setPosition(parsePosition(sat.select("td:eq(1)").text()));    
+                } catch (Exception eo) {
+                    //this shouldn't happen
+                    System.err.println(eo);
+                    continue;
+                }
+                
             }
             
             satellites.add(satellite);
