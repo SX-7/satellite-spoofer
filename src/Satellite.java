@@ -25,7 +25,6 @@ public class Satellite {
         this.producer = producer;
     }
 
-    //Could be very well null, since there's no point to satellites without names
     private ArrayList<String> name = new ArrayList<String>();
 
     public String getName() {
