@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import org.jsoup.*;
+import org.jsoup.nodes.Document;
 
 public class LyngSat extends  Webpages{
 
@@ -16,8 +18,7 @@ public class LyngSat extends  Webpages{
 
     //This method will parse satellites from different subpages
     private ArrayList<Satellite> parseSubpage(String subpage) {
-        url = url + subpage;
-        satellites.add(null);
+        String url = this.url + subpage;
         return null;
     }
 }
