@@ -16,19 +16,25 @@ public class Flysat extends Webpages {
     }
 
     private static float parsePosition(String position) {
-        return Float.parseFloat(position.substring(0,position.length()-3));
+        Float posNumber = Float.parseFloat(position.substring(0,position.length()-3));
+        String director = position.substring(position.length()-1);
+        if(director=="E"){
+            posNumber=posNumber*(-1);
+        }
+        return posNumber;
+        
     }
 
     @Override
     public ArrayList<Satellite> getSatellites() {
+        ArrayList <Satellite> satellites = new ArrayList<Satellite>();
         Document document = null;
         try {
             document = Jsoup.connect(url).get();
         } catch (Exception e) {
-            return null;
+            return satellites;
         }
         Elements sats = document.select("tr:has(> td > font > a)");
-        ArrayList <Satellite> satellites = new ArrayList<Satellite>();
         for (Element sat : sats) {
             Satellite satellite = new Satellite();
             satellite.setName(sat.select("td:eq(1)").text());
@@ -43,7 +49,6 @@ public class Flysat extends Webpages {
                     System.err.println(eo);
                     continue;
                 }
-                
             }
             
             satellites.add(satellite);
