@@ -37,21 +37,20 @@ public class Flysat extends Webpages {
         Elements sats = document.select("tr:has(> td > font > a)");
         for (Element sat : sats) {
             Satellite satellite = new Satellite();
-            satellite.setName(sat.select("td:eq(1)").text());
-            try {
-                satellite.setPosition(parsePosition(sat.select("td:eq(2)").text()));
-            } catch (Exception ei) {
-                satellite.setName(sat.select("td:eq(0)").text());
-                try {
-                    satellite.setPosition(parsePosition(sat.select("td:eq(1)").text()));    
-                } catch (Exception eo) {
-                    //this shouldn't happen
-                    System.err.println(eo);
-                    continue;
-                }
+            ArrayList<String> names = new ArrayList<String>();
+            Elements fields = sat.select("a");
+            if(fields.size()==2){
+                names.add(fields.eq(0).text());
+                satellite.setName(names);
+                satellite.setPosition(parsePosition(fields.eq(1).text()));
+                satellites.add(satellite);
+            } else if (fields.size()==3){
+                names.add(fields.eq(1).text());
+                satellite.setName(names);
+                satellite.setPosition(parsePosition(fields.eq(2).text()));
+                satellites.add(satellite);
             }
             
-            satellites.add(satellite);
         }
         return satellites;
     }
