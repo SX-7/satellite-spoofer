@@ -106,4 +106,11 @@ public class Satellite {
     public void setProducer(String producer) {
         this.producer = producer;
     }
+
+    @Override
+    public String toString() {
+        return "Satellite [names=" + name + ", position=" + position + ", norad=" + norad + ", cospar=" + cospar
+                + ", model=" + model + ", launchSite=" + launchSite + ", launchDate=" + launchDate + ", producer="
+                + producer + "]";
+    }
 }
