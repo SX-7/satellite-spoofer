@@ -36,7 +36,6 @@ public class Flysat extends Webpages {
         Elements sats = document.select("tr:has(> td > font > a)"); 
         for (Element sat : sats) {
             Satellite satellite = new Satellite();
-            //secondary names are hard to extract due to inconsistencies
             ArrayList<String> names = new ArrayList<String>();
             Elements fields = sat.select("a");
             //everything is in if to avoid trying to parse (or add) "satellites" that are actually not satellites
