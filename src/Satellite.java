@@ -129,7 +129,7 @@ public class Satellite implements Comparable<Satellite>{
                 if(arg0.getPosition()==Webpages.NULL){
                     return 1;
                 }
-                return (int) (this.getPosition()-arg0.getPosition());
+                return (int) ((this.getPosition()-arg0.getPosition())*100);
             default:
                 return 0;
         }        
