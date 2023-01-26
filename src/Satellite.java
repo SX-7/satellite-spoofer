@@ -2,6 +2,10 @@ import java.util.ArrayList;
 
 public class Satellite implements Comparable<Satellite>{
     
+    public static final int NAME = 0;
+    public static final int POSITION = 1;
+    private static int sortOption = NAME;
+
     //Pointless, but just in case it's wanted
     public Satellite() {
     }
@@ -119,5 +123,9 @@ public class Satellite implements Comparable<Satellite>{
             return 1;
         }
         return arg0.getName().get(0).compareToIgnoreCase(this.getName().get(0));
+    }
+    
+    public static void setSortOption(int option){
+        sortOption = option;
     }
 }
