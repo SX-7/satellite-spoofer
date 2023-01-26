@@ -18,7 +18,8 @@ public class App {
         for (int i=0;i<1;i++) {
             System.out.println(sl4.get(i));
         }
-        java.util.Collections.sort(sl1);
+        Satellite.setSortOption(Satellite.POSITION);
+        java.util.Collections.sort(sl1,sl1.get(0));
         for (int i=0;i<1;i++) {
             System.out.println(sl1.get(i));
         }
