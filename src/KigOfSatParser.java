@@ -42,7 +42,6 @@ public class KigOfSatParser extends Webpages{
             satellite.setPosition(parsePosition(sat.select("td:eq(0) > a").text()));
             satellite.setNorad(sat.select("td:eq(2").text());
             satellites.add(satellite);
-            System.out.println(satellite);
         }
         return satellites;
     }
