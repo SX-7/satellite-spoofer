@@ -119,14 +119,23 @@ public class Satellite implements Comparable<Satellite>{
     }
 
     public int compareTo(Satellite arg0) {
-        if(null==arg0.name.get(0)){
-            return 1;
-        }
-        return arg0.getName().get(0).compareToIgnoreCase(this.getName().get(0));
+        switch (sortOption) {
+            case NAME:
+                if(null==arg0.getName().get(0)){
+                    return 1;
+                }
+                return arg0.getName().get(0).compareToIgnoreCase(this.getName().get(0));        
+            case POSITION:
+                if(arg0.getPosition()==Webpages.NULL){
+                    return 1;
+                }
+                return (int) (this.getPosition()-arg0.getPosition());
+            default:
+                return 0;
+        }        
     }
     
     public static void setSortOption(int option){
-        
         sortOption = switch (option) {
             case NAME,POSITION:
                 yield option;
