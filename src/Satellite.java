@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Satellite {
+public class Satellite implements Comparable<Satellite>{
     
     //Pointless, but just in case it's wanted
     public Satellite() {
@@ -112,5 +112,12 @@ public class Satellite {
         return "Satellite [names=" + name + ", position=" + position + ", norad=" + norad + ", cospar=" + cospar
                 + ", model=" + model + ", launchSite=" + launchSite + ", launchDate=" + launchDate + ", producer="
                 + producer + "]";
+    }
+
+    public int compareTo(Satellite arg0) {
+        if(null==arg0.name.get(0)){
+            return 1;
+        }
+        return arg0.getName().get(0).compareToIgnoreCase(this.getName().get(0));
     }
 }
