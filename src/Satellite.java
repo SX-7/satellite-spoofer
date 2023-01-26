@@ -126,6 +126,12 @@ public class Satellite implements Comparable<Satellite>{
     }
     
     public static void setSortOption(int option){
-        sortOption = option;
+        
+        sortOption = switch (option) {
+            case NAME,POSITION:
+                yield option;
+            default:
+                throw new IllegalArgumentException("Unsupported option: "+option);
+        };
     }
 }
