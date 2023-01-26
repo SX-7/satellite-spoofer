@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 
-public class Satellite implements Comparable<Satellite>{
+public class Satellite implements Comparable<Satellite>,Comparator<Satellite>{
     
     public static final int NAME = 0;
     public static final int POSITION = 1;
@@ -142,5 +143,10 @@ public class Satellite implements Comparable<Satellite>{
             default:
                 throw new IllegalArgumentException("Unsupported option: "+option);
         };
+    }
+
+    @Override
+    public int compare(Satellite arg0, Satellite arg1) {
+        return arg0.compareTo(arg1);
     }
 }
