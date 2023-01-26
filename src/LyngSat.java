@@ -36,12 +36,12 @@ public class LyngSat extends  Webpages{
         Elements rows = getTableRows(document);
 
         //Removing elements with wildcard attributes in names (for example "incl.")
-        for (int i = 0; i < rows.size(); i++) {
+       /* for (int i = 0; i < rows.size(); i++) {
             String found = rows.get(i).select("td > font > font > i").toString();
             if (!found.equals("")) {
                 rows.remove(i);
             }
-        }
+        }*/
 
         int i = 0;
         while (i < rows.size()) {
