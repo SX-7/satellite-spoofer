@@ -10,13 +10,13 @@ import org.jsoup.select.Elements;
 
 public class LyngSat extends  Webpages{
 
-    public LyngSat() {
+    public LyngSat(String url) {
         super("https://www.lyngsat.com/");
         satellites = new ArrayList<Satellite>();
-        //parseSubpage("asia.html");
+        parseSubpage("asia.html");
         parseSubpage("europe.html");
-        //parseSubpage("atlantic.html");
-        //parseSubpage("america.html");
+        parseSubpage("atlantic.html");
+        parseSubpage("america.html");
     }
     @Override
     public ArrayList<Satellite> getSatellites() {
